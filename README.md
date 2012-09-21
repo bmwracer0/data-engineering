@@ -12,3 +12,5 @@ You can run the Rspec tests for this application by first running <code>rake db:
 ### Future:
 
 If this app was to be used in a production environment, it might be recommended to do the processing asyncronously by using a queue or something similar. Parsing the CSV during the request is not optimal from a user's point of view, because large files may appear to make the app unresponsive. In addition to the asyncronous processing, but it might be useful to save the files on disk somewhere for archiving purposes, rather than store the contents of the file in the database.
+
+Sorry this was lumped in all as one commit, I started working on it with a different Github account (the one I use for work stuff) and wanted to move it over to a different account. 
