@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="span6 offset3 well">
+		<legend>Upload a CSV File</legend>
+		<%= form_for @import, multipart: :true, :class => "form-horizontal" do |f| %>
+			<div class="control-group">
+				<div class="controls">
+					<%= f.file_field :file %>
+				</div>
+			</div>
+			<%= f.submit "Upload", :class => "btn btn-primary" %>
+		<% end %>
+	</div>
+	<% if @last_import %>
+		<div class="span6 offset3">
+			<legend>Last Import <small class="pull-right"><%= time_tag @last_import.created_at.localtime, "#{distance_of_time_in_words_to_now(@last_import.created_at.localtime)} ago", :title => @last_import.created_at.localtime %></small></legend>
+				<p><%= "Total Value: #{number_to_currency @last_import.total_price}" %></p>
+				<p><%= "Number of transactions: #{@last_import.purchases.count}" %></p>
+		</div>
+	<% end %>
+</div>

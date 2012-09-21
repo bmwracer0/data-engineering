@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LivingSocial Data Importer</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<%= link_to "The Importer", root_url, :class => "brand" %>
+						<ul class="nav pull-right">    
+							<% if current_user %>
+								<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+							<% else %>
+								<li><%= link_to "Sign In", omniauth_authorize_path(resource_name, :google) %></li>
+							<% end %>
+						</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<%= render :partial => "shared/flash", :locals => {:flash => flash} %>
+			<%= yield %>
+		</div>
+	</body>
+</html>
